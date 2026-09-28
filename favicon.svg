@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AEMUSE">
+  <rect width="64" height="64" rx="12" fill="#fff"/>
+  <g transform="rotate(-38 32 32)" fill="#b53328">
+    <path fill-rule="evenodd" d="M20 17a15 15 0 1 0 13.64 21.28H57a4 4 0 0 0 4-4v-5a4 4 0 0 0-4-4H33.64A15 15 0 0 0 20 17Zm0 9a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/>
+    <path d="M45 34h7v10h-7zM53 34h7v7h-7z"/>
+  </g>
+</svg>
