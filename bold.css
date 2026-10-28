@@ -1,5 +1,6 @@
 @font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-variable.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
 :root{--night:#211b18;--warm:#eae1d5;--paper:#f7f2e9;--wine:#a24b35;--ink:#28211c;--pale:#d7c9b8;--brass:#e2bd82;--photo-radius:clamp(24px,3.2vw,54px);--photo-gap:clamp(10px,1.15vw,20px)}
+body,main{background:var(--warm)}
 body,button,a{font-family:"Geist Mono",ui-monospace,monospace;font-weight:400;letter-spacing:normal}
 h1,h2,h3,.mp-entry h2,.mp-process-grid h3{font-family:"Geist Mono",ui-monospace,monospace;font-weight:650;letter-spacing:-.012em;line-height:1.15}
 h1 em,h2 em{font-style:normal;font-weight:700}
@@ -54,8 +55,9 @@ body[data-page=work] .mp-work-hero,body[data-page=work] .mp-case-hero,body[data-
 .mp-entry[data-enter]{opacity:1;transform:none;transition:none}
 .mp-home-feature h2,.mp-featured-project h2,.mp-case-end h2,.mp-about-photo h2{font-size:clamp(38px,4.5vw,68px)}
 .mp-home-feature::after{background:linear-gradient(180deg,rgba(15,12,10,.4) 0%,rgba(15,12,10,.36) 56%,rgba(234,225,213,.3) 84%,var(--warm) 100%)}
-.mp-home-close{background:linear-gradient(180deg,var(--warm) 0%,var(--paper) 260px)}
-.mp-next{background:var(--paper)}
+.mp-home-close{background:var(--warm)}
+.mp-next{background:var(--warm)}
+.mp-work-scenes{background:var(--warm)}
 .mp-page-lead{background:var(--warm)}
 .mp-lead-grid h1{font-size:clamp(42px,4.6vw,70px)}
 body[data-page=services] .site-header{row-gap:0}
@@ -65,7 +67,7 @@ body[data-page=services] .site-header .mp-jump-nav a:hover{text-decoration:under
 body[data-page=services] .mp-service-detail,body[data-page=services] .mp-process{scroll-margin-top:135px}
 .mp-service-detail h2,.mp-style-story h2,.mp-process h2,.mp-style-choice h2,.mp-work-scenes h2,.mp-about-method h2,.mp-contact-guide h2{font-size:clamp(36px,3.8vw,58px)}
 .mp-service-copy dt,.mp-style-story dt{color:var(--wine);font-weight:400}
-.mp-process{background:#33271f}
+.mp-process{background:var(--warm);color:var(--ink)}
 .mp-process-grid h3{font-size:clamp(25px,2.4vw,36px)}
 .mp-style-hero h1,.mp-work-hero h1,.mp-case-hero h1,.mp-contact-hero h1{font-size:clamp(43px,5.2vw,76px)}
 .mp-style-intro h2,.mp-work-intro h2,.mp-case-intro h2,.mp-about-belief h2{font-size:clamp(37px,3.9vw,60px)}
@@ -118,8 +120,8 @@ body[data-page=services] .mp-service-detail,body[data-page=services] .mp-process
 
 /* One floating glass navigation surface on every page and over every photograph. */
 .site-header,.site-header[data-theme],.site-header[data-scrolled=true],.site-header.menu-open,.site-header.menu-open[data-theme]{top:var(--photo-gap);left:var(--photo-gap);right:var(--photo-gap);min-height:70px;padding:12px clamp(22px,3vw,48px);border:1px solid rgba(255,255,255,.68);border-radius:var(--photo-radius);background:linear-gradient(155deg,rgba(255,255,255,.2),rgba(255,255,255,.02) 48%,rgba(255,255,255,.08)),rgba(247,242,233,.62);color:var(--ink);box-shadow:0 14px 38px rgba(33,27,24,.12),inset 0 1px 0 rgba(255,255,255,.7);backdrop-filter:blur(18px) saturate(1.6) contrast(1.08);-webkit-backdrop-filter:blur(18px) saturate(1.6) contrast(1.08)}
-body[data-page=styles]{background:var(--paper)}
-body[data-page=styles] .mp-style-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:center;gap:clamp(36px,5vw,100px);width:calc(100% - 2*var(--photo-gap));max-width:none;min-height:0;margin:0 var(--photo-gap);padding:clamp(132px,12vw,180px) var(--mp-gutter) clamp(70px,8vw,120px);border-radius:0;background:var(--paper);color:var(--ink);overflow:visible;isolation:auto}
+body[data-page=styles]{background:var(--warm)}
+body[data-page=styles] .mp-style-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:center;gap:clamp(36px,5vw,100px);width:calc(100% - 2*var(--photo-gap));max-width:none;min-height:0;margin:0 var(--photo-gap);padding:clamp(132px,12vw,180px) var(--mp-gutter) clamp(70px,8vw,120px);border-radius:0;background:var(--warm);color:var(--ink);overflow:visible;isolation:auto}
 body[data-page=styles] .mp-style-hero::after{display:none}
 body[data-page=styles] .mp-style-hero-copy{max-width:740px;padding:0}
 body[data-page=styles] .mp-style-hero h1{max-width:none;font-size:clamp(45px,4.4vw,76px);line-height:1.09}
