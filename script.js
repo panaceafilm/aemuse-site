@@ -19,7 +19,7 @@ const header = document.getElementById('site-header');
 header.innerHTML = `<a class="brand" href="index.html" aria-label="AEMUSE — главная">${mark}<span>aemuse</span></a><nav aria-label="Разделы сайта">${links}</nav><div class="header-actions"><div class="lang-control"><button class="lang-trigger" type="button" aria-label="Язык сайта" aria-expanded="false" aria-controls="lang-options"><span class="lang-flag">${flags.ru}</span><span class="lang-current">RU</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="lang-options" id="lang-options" role="group" aria-label="Выбор языка" hidden>${languageChoices}</div></div><a class="header-contact" href="contact.html">обсудить съёмку <span aria-hidden="true">↗</span></a><button class="mp-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav class="mp-mobile-nav" id="mobile-nav" aria-label="Мобильное меню">${links}<a href="contact.html">обсудить съёмку</a></nav>`;
 if (current === 'services') {
   const jumpNav = document.querySelector('.mp-jump-nav');
-  if (jumpNav) header.append(jumpNav);
+  if (jumpNav) header.after(jumpNav);
 }
 const footer = document.getElementById('site-footer');
 if (footer) footer.innerHTML = `<div class="mp-footer-top"><a class="mp-footer-brand" href="index.html">aemuse.me</a><p>Фото и видео для мест, которые хочется почувствовать.</p><a href="mailto:hi@aemuse.me">hi@aemuse.me</a></div><div class="mp-footer-bottom"><nav aria-label="Навигация внизу страницы">${links}<a href="contact.html">контакты</a></nav><span>Екатерина и Андрей Ефимовы · 2026</span></div>`;

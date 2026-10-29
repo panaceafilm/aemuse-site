@@ -249,3 +249,36 @@ body[data-case=ararat],body[data-case=ararat] main,body[data-case=ararat] .mp-ca
   .mp-case-pair img:nth-child(2){margin-top:55px}
 }
 @media(prefers-reduced-motion:reduce){.mp-film-label{transition:none}}
+
+/* Still photographs lead; moving details punctuate the story at intervals. */
+.mp-motion-preview{padding-bottom:clamp(54px,7vw,110px)}
+.mp-motion-frame{width:min(28vw,350px);aspect-ratio:9/16;margin:0;overflow:hidden;border-radius:var(--photo-radius);background:var(--night)}
+.mp-motion-frame picture,.mp-motion-frame img{display:block;width:100%;height:100%}
+.mp-motion-frame img{object-fit:cover}
+.mp-motion-frame--right{margin:0 clamp(9vw,17vw,260px) 0 auto}
+.mp-motion-interlude{display:flex;align-items:center;min-height:clamp(450px,48vw,690px);padding:clamp(50px,6vw,90px) var(--mp-gutter);background:var(--warm)}
+.mp-motion-interlude--left{justify-content:flex-start;padding-left:clamp(7vw,15vw,240px)}
+.mp-motion-interlude--right{justify-content:flex-end;padding-right:clamp(7vw,15vw,240px)}
+.mp-home-close-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);align-items:center;gap:clamp(60px,12vw,190px)}
+.mp-home-close-grid .mp-motion-frame{width:100%;max-width:320px;justify-self:end}
+.mp-home-feature>div{padding-inline:clamp(42px,7vw,120px)}
+.mp-entry{padding:clamp(35px,4vw,65px)}
+
+/* The service links live in their own compact glass pill below the header. */
+body[data-page=services] .site-header .brand{align-self:center}
+body[data-page=services]>.mp-jump-nav{position:fixed;z-index:49;top:calc(var(--photo-gap) + 80px);left:var(--photo-gap);width:max-content;max-width:calc(100vw - 2*var(--photo-gap));margin:0;padding:14px clamp(20px,2.3vw,34px);display:flex;flex-wrap:nowrap;gap:clamp(17px,2.2vw,35px);border:1px solid rgba(241,229,215,.24);border-radius:var(--photo-radius);background:linear-gradient(145deg,rgba(241,229,215,.1),rgba(241,229,215,.03)),rgba(24,13,17,.77);color:var(--paper);box-shadow:0 14px 35px rgba(5,2,4,.25),inset 0 1px 0 rgba(241,229,215,.16);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);font-size:12px;font-weight:400;overflow-x:auto;scrollbar-width:none}
+body[data-page=services]>.mp-jump-nav::-webkit-scrollbar{display:none}
+body[data-page=services]>.mp-jump-nav a{white-space:nowrap;text-decoration:none}
+body[data-page=services]>.mp-jump-nav a:hover,body[data-page=services]>.mp-jump-nav a:focus-visible{text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--wine)}
+body[data-page=services] .mp-page-lead{padding-top:190px}
+@media(max-width:760px){
+  .mp-motion-frame{width:min(56vw,250px)}
+  .mp-motion-frame--right{margin-right:10vw}
+  .mp-motion-interlude{min-height:390px;padding-block:45px}
+  .mp-motion-interlude--left{padding-left:11vw}
+  .mp-motion-interlude--right{padding-right:11vw}
+  .mp-home-close-grid{grid-template-columns:1fr;gap:65px}
+  .mp-home-close-grid .mp-motion-frame{width:min(56vw,250px);justify-self:end}
+  body[data-page=services]>.mp-jump-nav{top:calc(var(--photo-gap) + 72px);padding:12px 17px;gap:19px;font-size:11px}
+  body[data-page=services] .mp-page-lead{padding-top:165px}
+}
