@@ -316,6 +316,45 @@ body[data-page=work] .mp-featured-project::after{display:none}
 body[data-page=work] .mp-featured-project>img{position:static;display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center;z-index:auto;border-radius:var(--photo-radius)}
 body[data-page=work] .mp-featured-project>div{padding:0;max-width:470px}
 body[data-page=work] .mp-featured-project h2{font-size:clamp(36px,4vw,58px)}
+
+/* Keep the five moving excerpts attached to the story they illustrate. */
+:root{--night:#090708;--warm:#180e12}
+body,main,.mp-work-open,.mp-work-intro,.mp-motion-preview,.mp-style-story,.mp-case-gallery,.mp-case-scene,.mp-process,.mp-style-choice{background-color:var(--warm)}
+.mp-motion-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,320px);gap:clamp(55px,10vw,170px);align-items:center;padding-block:clamp(70px,9vw,130px)}
+.mp-motion-layout .mp-motion-heading{display:block;margin:0}
+.mp-motion-layout .mp-motion-heading p{max-width:42ch;margin-top:30px}
+.mp-motion-layout .mp-motion-frame{width:100%;max-width:320px;justify-self:center}
+.mp-work-intro .mp-work-intro-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,315px);gap:clamp(50px,8vw,140px);align-items:center;padding-block:clamp(70px,8vw,125px)}
+.mp-work-intro .mp-work-intro-copy{display:grid;grid-template-columns:1fr;gap:24px;align-content:center}
+.mp-work-intro .mp-work-intro-copy p{max-width:45ch}
+.mp-work-intro .mp-motion-frame{width:100%;max-width:315px;justify-self:center}
+.mp-case-scene figure.mp-inline-motion{width:min(100%,315px);margin:0;justify-self:center;overflow:hidden;border-radius:var(--photo-radius);background:transparent}
+.mp-case-pair.mp-case-pair--three{display:grid;grid-template-columns:repeat(3,minmax(0,320px));gap:clamp(16px,3vw,46px);align-items:center;justify-content:center}
+.mp-case-pair.mp-case-pair--three img,.mp-case-pair.mp-case-pair--three img:nth-child(2){display:block;width:100%;height:auto;max-height:none;margin:0;object-fit:contain;border-radius:var(--photo-radius)}
+.mp-case-pair.mp-case-pair--three img:nth-child(2){transform:translateY(34px)}
+.mp-motion-frame,.mp-inline-motion,body[data-page=styles] .mp-style-story figure.mp-inline-motion,.mp-service-detail figure.mp-inline-motion{overflow:hidden;border-radius:var(--photo-radius);background:transparent;box-shadow:none}
+.mp-motion-frame img,.mp-inline-motion img{background:transparent;border-radius:inherit}
+.mp-motion-frame::after,.mp-inline-motion::after{border-radius:inherit;opacity:.28;background-size:120px 120px}
+body[data-page=styles] .mp-style-story figure.mp-inline-motion{max-width:315px}
+body[data-page=styles] .mp-style-story figure.mp-inline-motion img{border-radius:inherit}
+
+/* The opening photograph and the adjacent film share one height. Only the copy area is shaded. */
+body[data-page=work] .mp-work-open{align-items:stretch}
+body[data-page=work] .mp-work-open .mp-work-hero{height:100%;min-height:0}
+body[data-page=work] .mp-work-open .mp-work-hero::after{background:linear-gradient(0deg,rgba(5,3,4,.66),rgba(5,3,4,.26) 36%,transparent 65%)}
+body[data-page=work] .mp-work-open .mp-work-hero>img{filter:none}
+body[data-page=work] .mp-work-open .mp-work-hero h1{font-size:clamp(35px,3.35vw,54px);line-height:1.12}
+body[data-page=work] .mp-work-open .mp-work-hero p{font-size:clamp(15px,1.15vw,18px);line-height:1.55}
+.mp-work-teaser{display:flex;flex-direction:column;justify-content:space-between}
+.mp-work-teaser iframe{flex:1 1 auto;min-height:0;aspect-ratio:9/16}
+.mp-work-teaser>a{margin-top:14px}
+
+/* Smaller headings let imagery breathe without shrinking the reading text. */
+.mp-service-detail h2,.mp-style-story h2,.mp-process h2,.mp-style-choice h2,.mp-work-scenes h2,.mp-about-method h2,.mp-contact-guide h2{font-size:clamp(32px,3.25vw,51px)}
+.mp-style-hero h1,.mp-case-hero h1,.mp-contact-hero h1{font-size:clamp(39px,4.45vw,66px)}
+.mp-style-intro h2,.mp-work-intro h2,.mp-case-intro h2,.mp-about-belief h2{font-size:clamp(33px,3.45vw,52px)}
+.mp-case-scene h2{font-size:clamp(35px,3.6vw,54px)}
+.mp-motion-heading h2,.mp-case-films-heading h2{font-size:clamp(33px,3.6vw,54px)}
 @media(max-width:760px){
   .mp-motion-frame{width:min(56vw,250px)}
   .mp-motion-frame--right{margin-right:10vw}
@@ -338,4 +377,11 @@ body[data-page=work] .mp-featured-project h2{font-size:clamp(36px,4vw,58px)}
   body[data-page=work] .mp-featured-project{display:flex;flex-direction:column;align-items:stretch;gap:28px;width:calc(100% - 48px)}
   body[data-page=work] .mp-featured-project>img{width:min(100%,470px);align-self:center}
   body[data-page=work] .mp-featured-project>div{width:100%;padding:0}
+  .mp-motion-layout,.mp-work-intro .mp-work-intro-layout{display:flex;flex-direction:column;align-items:stretch;gap:38px;padding-block:70px}
+  .mp-motion-layout .mp-motion-frame,.mp-work-intro .mp-motion-frame{width:min(75vw,300px);align-self:center}
+  .mp-case-pair.mp-case-pair--three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mp-case-pair.mp-case-pair--three img:nth-child(2){transform:none}
+  .mp-case-pair.mp-case-pair--three img:last-child{grid-column:2;margin-top:-20px}
+  body[data-page=work] .mp-work-open .mp-work-hero{height:clamp(480px,65svh,640px)}
+  body[data-page=work] .mp-work-open .mp-work-hero h1{font-size:clamp(32px,7.2vw,46px)}
 }
