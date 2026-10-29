@@ -23,6 +23,7 @@ if (current === 'services') {
 }
 const footer = document.getElementById('site-footer');
 if (footer) footer.innerHTML = `<div class="mp-footer-top"><a class="mp-footer-brand" href="index.html">aemuse.me</a><p>Фото и видео для мест, которые хочется почувствовать.</p><a href="mailto:hi@aemuse.me">hi@aemuse.me</a></div><div class="mp-footer-bottom"><nav aria-label="Навигация внизу страницы">${links}<a href="contact.html">контакты</a></nav><span>Екатерина и Андрей Ефимовы · 2026</span></div>`;
+document.body.insertAdjacentHTML('beforeend', `<aside class="mp-quick-contact" aria-label="Быстрая связь"><a href="https://t.me/efimovandrey" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram"><img src="contact-telegram.png" alt="" width="50" height="44"></a><a href="https://wa.me/79261767139" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp"><img src="contact-whatsapp.png" alt="" width="45" height="44"></a></aside>`);
 const menu = header.querySelector('.mp-menu-toggle');
 menu.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') !== 'true';
