@@ -254,6 +254,15 @@ const copy = [
   ["Посмотреть наши фильмы", "Watch our films", "Voir nos films", "Guarda i nostri film"],
   ["Кадр из видео о ресторане отеля", "A frame from our hotel restaurant film", "Une image de notre film sur le restaurant de l'hôtel", "Un fotogramma del nostro film sul ristorante dell'hotel"],
   ["Кадр из нашего фильма для Ararat Park Hyatt", "A frame from our Ararat Park Hyatt film", "Une image de notre film pour l'Ararat Park Hyatt", "Un fotogramma del nostro film per l'Ararat Park Hyatt"],
+  ["Работы и фильм Ararat Park Hyatt", "Work and the Ararat Park Hyatt film", "Réalisations et film Ararat Park Hyatt", "Lavori e film Ararat Park Hyatt"],
+  ["Ararat Park Hyatt — часть I, видео без звука", "Ararat Park Hyatt — part I, silent preview", "Ararat Park Hyatt — partie I, aperçu muet", "Ararat Park Hyatt — parte I, anteprima senza audio"],
+  ["Часть II — смотреть со звуком", "Part II — watch with sound", "Partie II — voir avec le son", "Parte II — guarda con audio"],
+  ["Две части фильма Ararat Park Hyatt", "Two parts of the Ararat Park Hyatt film", "Les deux parties du film Ararat Park Hyatt", "Le due parti del film Ararat Park Hyatt"],
+  ["Воспроизвести фильм, часть I", "Play film, part I", "Lancer le film, partie I", "Riproduci il film, parte I"],
+  ["Воспроизвести фильм, часть II", "Play film, part II", "Lancer le film, partie II", "Riproduci il film, parte II"],
+  ["Короткая сцена вечернего сервиса в ресторане", "A short scene of evening restaurant service", "Une courte scène du service du soir au restaurant", "Una breve scena del servizio serale al ristorante"],
+  ["Вечерняя сцена из фильма об отеле", "An evening scene from the hotel film", "Une scène du soir tirée du film de l’hôtel", "Una scena serale tratta dal film sull’hotel"],
+  ["Утро гостьи в номере Ararat Park Hyatt", "A guest's morning at Ararat Park Hyatt", "Le matin d’une cliente à l’Ararat Park Hyatt", "La mattina di un’ospite all’Ararat Park Hyatt"],
 ];
 
 const codes = ['ru', 'en', 'fr', 'it'];

@@ -15,3 +15,23 @@ if (filmFrames.length > 1 && window.playerjs) {
     }
   });
 }
+
+const previewFrames = [...document.querySelectorAll('.mp-film-preview')];
+if (previewFrames.length > 1 && window.playerjs) {
+  const previewPlayers = previewFrames.map(frame => new playerjs.Player(frame.querySelector('iframe')));
+  previewFrames.forEach((frame, index) => {
+    frame.querySelector('button').addEventListener('click', () => {
+      frame.classList.add('is-playing');
+      previewPlayers.forEach((player, otherIndex) => {
+        if (otherIndex !== index) player.pause();
+      });
+      previewPlayers[index].play();
+    });
+    previewPlayers[index].on('play', () => {
+      frame.classList.add('is-playing');
+      previewPlayers.forEach((player, otherIndex) => {
+        if (otherIndex !== index) player.pause();
+      });
+    });
+  });
+}
