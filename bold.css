@@ -304,6 +304,18 @@ body[data-page=styles] .mp-style-story figure.mp-inline-motion img{width:100%;he
 .mp-film-preview button:focus-visible{outline:3px solid var(--brass);outline-offset:-3px}
 .mp-film-preview.is-playing button{display:none}
 .mp-home-close-grid{display:block}
+/* Keep every vertical film at its native 9:16 ratio so the player has no letterboxing. */
+.mp-work-teaser iframe{height:auto;aspect-ratio:9/16}
+/* The five short animated excerpts share a restrained monochrome film treatment. */
+.mp-motion-frame,.mp-inline-motion{position:relative;isolation:isolate}
+.mp-motion-frame img,.mp-inline-motion img{filter:grayscale(1) contrast(1.12) brightness(1.03)}
+.mp-motion-frame::after,.mp-inline-motion::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.16;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
+/* Show the original portrait at a readable size rather than enlarging a crop. */
+body[data-page=work] .mp-featured-project{display:grid;grid-template-columns:minmax(0,470px) minmax(0,1fr);gap:clamp(34px,6vw,100px);align-items:center;min-height:0;width:min(90vw,1110px);margin:0 auto;background:transparent;color:var(--paper);border-radius:0;overflow:visible;isolation:auto}
+body[data-page=work] .mp-featured-project::after{display:none}
+body[data-page=work] .mp-featured-project>img{position:static;display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center;z-index:auto;border-radius:var(--photo-radius)}
+body[data-page=work] .mp-featured-project>div{padding:0;max-width:470px}
+body[data-page=work] .mp-featured-project h2{font-size:clamp(36px,4vw,58px)}
 @media(max-width:760px){
   .mp-motion-frame{width:min(56vw,250px)}
   .mp-motion-frame--right{margin-right:10vw}
@@ -323,4 +335,7 @@ body[data-page=styles] .mp-style-story figure.mp-inline-motion img{width:100%;he
   .mp-service-films{max-width:550px;align-self:center}
   .mp-film-preview .mp-preview-title{font-size:clamp(18px,4vw,26px)}
   .mp-film-preview .mp-preview-play{width:50px}
+  body[data-page=work] .mp-featured-project{display:flex;flex-direction:column;align-items:stretch;gap:28px;width:calc(100% - 48px)}
+  body[data-page=work] .mp-featured-project>img{width:min(100%,470px);align-self:center}
+  body[data-page=work] .mp-featured-project>div{width:100%;padding:0}
 }
