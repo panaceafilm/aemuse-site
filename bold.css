@@ -205,3 +205,47 @@ body[data-page=styles] .mp-style-story h2{max-width:14ch}
   .mp-motion-strip figure{flex:0 0 min(74vw,340px);scroll-snap-align:center}
   .mp-case-films-grid{grid-template-columns:minmax(0,390px);gap:55px}
 }
+
+/* Oxblood and charcoal, with warm ivory kept for text and controls. */
+:root{--night:#0d0a0c;--warm:#211519;--paper:#f1e5d7;--ink:#f1e5d7;--pale:#d7c3bd;--wine:#e0a596;--brass:#e8be84}
+body{color:var(--ink)}
+.site-header,.site-header[data-theme],.site-header[data-scrolled=true],.site-header.menu-open,.site-header.menu-open[data-theme]{border-color:rgba(241,229,215,.26);background:linear-gradient(145deg,rgba(241,229,215,.11),rgba(241,229,215,.025) 48%,rgba(241,229,215,.065)),rgba(24,13,17,.73);color:var(--paper);box-shadow:0 14px 40px rgba(5,2,4,.32),inset 0 1px 0 rgba(241,229,215,.22)}
+.lang-trigger{border-color:rgba(241,229,215,.35);background:rgba(241,229,215,.07);color:var(--paper)}
+.lang-options{border-color:rgba(241,229,215,.24);background:rgba(30,18,22,.94);color:var(--paper);box-shadow:0 15px 35px rgba(5,2,4,.4)}
+.lang-options button:hover,.lang-options button[aria-current=true]{background:rgba(224,165,150,.16)}
+.button-light{color:var(--night)}
+.button-dark{color:var(--night)}
+.button-light:hover{background:#dfcdbd}
+.button-dark:hover{background:#f0bdb0}
+.mp-home-hero .hero-content h1{color:var(--paper)}
+.mp-home-hero .hero-bottom{color:var(--paper);text-shadow:0 1px 10px rgba(5,2,4,.6)}
+.mp-home-feature::after{background:linear-gradient(180deg,rgba(13,10,12,.4) 0%,rgba(13,10,12,.4) 58%,rgba(33,21,25,.45) 82%,var(--warm) 100%)}
+.mp-service-detail figcaption,.mp-honest-note,.mp-service-copy .mp-honest-note{color:var(--pale)}
+.mp-about-hero,.mp-footer{background:var(--night)}
+body[data-page=styles] .mp-style-hero-photo{background:var(--night)}
+.mp-quick-contact a:focus-visible{outline-color:var(--brass)}
+@media(max-width:1100px){
+  .site-header .mp-mobile-nav,.site-header[data-theme=dark] .mp-mobile-nav{border-color:rgba(241,229,215,.24);background:rgba(30,18,22,.96);color:var(--paper);box-shadow:0 18px 38px rgba(5,2,4,.38)}
+}
+
+/* The case-study photographs keep their source 3:4 proportion. */
+.mp-case-scene{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(40px,7vw,120px)}
+.mp-case-scene-reverse{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+.mp-case-scene img{display:block;width:min(100%,520px);height:auto;max-height:none;object-fit:contain;justify-self:center}
+.mp-case-pair{grid-template-columns:minmax(0,500px) minmax(0,350px);justify-content:space-around;gap:clamp(25px,5vw,80px)}
+.mp-case-pair img,.mp-case-pair img:nth-child(2){width:100%;height:auto;max-height:none;object-fit:contain}
+
+/* Two uncropped vertical films sit on a black viewing surface. */
+body[data-case=ararat],body[data-case=ararat] main,body[data-case=ararat] .mp-case-intro,body[data-case=ararat] .mp-case-gallery{background:var(--night)}
+.mp-case-films{background:var(--night);color:var(--paper)}
+.mp-film-frame{position:relative;border-radius:0;box-shadow:0 28px 70px rgba(0,0,0,.46)}
+.mp-film-label{position:absolute;top:clamp(18px,2.5vw,28px);left:clamp(18px,2.5vw,28px);z-index:2;padding:9px 13px;border:1px solid rgba(241,229,215,.46);background:rgba(13,10,12,.55);color:var(--paper);font-size:clamp(13px,1.15vw,17px);line-height:1.1;letter-spacing:.02em;pointer-events:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .25s ease}
+.mp-film-frame.is-playing .mp-film-label{opacity:0}
+@media(max-width:760px){
+  .mp-case-scene,.mp-case-scene-reverse{display:flex;flex-direction:column;gap:38px}
+  .mp-case-scene-reverse div{order:0}
+  .mp-case-scene img{width:min(100%,500px);align-self:center}
+  .mp-case-pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+  .mp-case-pair img:nth-child(2){margin-top:55px}
+}
+@media(prefers-reduced-motion:reduce){.mp-film-label{transition:none}}
