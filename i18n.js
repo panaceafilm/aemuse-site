@@ -263,10 +263,11 @@ const copy = [
   ["Короткая сцена вечернего сервиса в ресторане", "A short scene of evening restaurant service", "Une courte scène du service du soir au restaurant", "Una breve scena del servizio serale al ristorante"],
   ["Вечерняя сцена из фильма об отеле", "An evening scene from the hotel film", "Une scène du soir tirée du film de l’hôtel", "Una scena serale tratta dal film sull’hotel"],
   ["Утро гостьи в номере Ararat Park Hyatt", "A guest's morning at Ararat Park Hyatt", "Le matin d’une cliente à l’Ararat Park Hyatt", "La mattina di un’ospite all’Ararat Park Hyatt"],
+  ["Путь гостьи по отелю", "A guest walking through the hotel", "Une cliente traverse l'hôtel", "Un'ospite attraversa l'hotel"],
 ];
 
-const codes = ['ru', 'en', 'fr', 'it'];
-const dictionary = new Map(copy.map(([ru, en, fr, it]) => [ru, { en, fr, it }]));
+const codes = ['ru', 'en', 'fr', 'it', 'de', 'es', 'pt'];
+const dictionary = new Map(copy.map(([ru, en, fr, it], index) => [ru, { en, fr, it, ...window.aemuseExtraTranslations?.[index] }]));
 const originalTitle = document.title;
 const description = document.querySelector('meta[name="description"]');
 const originalDescription = description?.content;

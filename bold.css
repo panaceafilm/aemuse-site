@@ -321,22 +321,22 @@ body[data-page=work] .mp-featured-project h2{font-size:clamp(36px,4vw,58px)}
 /* Keep the five moving excerpts attached to the story they illustrate. */
 :root{--night:#090708;--warm:#180e12}
 body,main,.mp-work-open,.mp-work-intro,.mp-motion-preview,.mp-style-story,.mp-case-gallery,.mp-case-scene,.mp-process,.mp-style-choice{background-color:var(--warm)}
-.mp-motion-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,320px);gap:clamp(55px,10vw,170px);align-items:center;padding-block:clamp(70px,9vw,130px)}
+.mp-motion-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:clamp(55px,8vw,140px);align-items:center;padding-block:clamp(70px,9vw,130px)}
 .mp-motion-layout .mp-motion-heading{display:block;margin:0}
 .mp-motion-layout .mp-motion-heading p{max-width:42ch;margin-top:30px}
-.mp-motion-layout .mp-motion-frame{width:100%;max-width:320px;justify-self:center}
-.mp-work-intro .mp-work-intro-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,315px);gap:clamp(50px,8vw,140px);align-items:center;padding-block:clamp(70px,8vw,125px)}
+.mp-motion-layout .mp-motion-frame{width:100%;max-width:420px;justify-self:center}
+.mp-work-intro .mp-work-intro-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:clamp(50px,8vw,140px);align-items:center;padding-block:clamp(70px,8vw,125px)}
 .mp-work-intro .mp-work-intro-copy{display:grid;grid-template-columns:1fr;gap:24px;align-content:center}
 .mp-work-intro .mp-work-intro-copy p{max-width:45ch}
-.mp-work-intro .mp-motion-frame{width:100%;max-width:315px;justify-self:center}
-.mp-case-scene figure.mp-inline-motion{width:min(100%,315px);margin:0;justify-self:center;overflow:hidden;border-radius:var(--photo-radius);background:transparent}
+.mp-work-intro .mp-motion-frame{width:100%;max-width:420px;justify-self:center}
+.mp-case-scene figure.mp-inline-motion{width:min(100%,420px);margin:0;justify-self:center;overflow:hidden;border-radius:var(--photo-radius);background:transparent}
 .mp-case-pair.mp-case-pair--three{display:grid;grid-template-columns:repeat(3,minmax(0,320px));gap:clamp(16px,3vw,46px);align-items:center;justify-content:center}
 .mp-case-pair.mp-case-pair--three img,.mp-case-pair.mp-case-pair--three img:nth-child(2){display:block;width:100%;height:auto;max-height:none;margin:0;object-fit:contain;border-radius:var(--photo-radius)}
 .mp-case-pair.mp-case-pair--three img:nth-child(2){transform:translateY(34px)}
 .mp-motion-frame,.mp-inline-motion,body[data-page=styles] .mp-style-story figure.mp-inline-motion,.mp-service-detail figure.mp-inline-motion{overflow:hidden;border-radius:var(--photo-radius);background:transparent;box-shadow:none}
 .mp-motion-frame img,.mp-inline-motion img{background:transparent;border-radius:inherit}
 .mp-motion-frame::after,.mp-inline-motion::after{border-radius:inherit;opacity:.28;background-size:120px 120px}
-body[data-page=styles] .mp-style-story figure.mp-inline-motion{max-width:315px}
+body[data-page=styles] .mp-style-story figure.mp-inline-motion{max-width:420px}
 body[data-page=styles] .mp-style-story figure.mp-inline-motion img{border-radius:inherit}
 
 /* The opening photograph and the adjacent film share one height. Only the copy area is shaded. */
@@ -379,7 +379,7 @@ body[data-page=work] .mp-work-open .mp-work-hero p{font-size:clamp(15px,1.15vw,1
   body[data-page=work] .mp-featured-project>img{width:min(100%,470px);align-self:center}
   body[data-page=work] .mp-featured-project>div{width:100%;padding:0}
   .mp-motion-layout,.mp-work-intro .mp-work-intro-layout{display:flex;flex-direction:column;align-items:stretch;gap:38px;padding-block:70px}
-  .mp-motion-layout .mp-motion-frame,.mp-work-intro .mp-motion-frame{width:min(75vw,300px);align-self:center}
+  .mp-motion-layout .mp-motion-frame,.mp-work-intro .mp-motion-frame{width:min(88vw,420px);align-self:center}
   .mp-case-pair.mp-case-pair--three{grid-template-columns:repeat(2,minmax(0,1fr))}
   .mp-case-pair.mp-case-pair--three img:nth-child(2){transform:none}
   .mp-case-pair.mp-case-pair--three img:last-child{grid-column:2;margin-top:-20px}
@@ -387,13 +387,20 @@ body[data-page=work] .mp-work-open .mp-work-hero p{font-size:clamp(15px,1.15vw,1
   body[data-page=work] .mp-work-open .mp-work-hero h1{font-size:clamp(32px,7.2vw,46px)}
 }
 
-/* Full-colour square excerpts rendered directly from the Mux masters at 640px. */
+/* Centrally cropped source frames keep subjects in proportion at every viewport. */
 .mp-motion-frame,.mp-inline-motion,
 .mp-service-detail figure.mp-inline-motion,
 body[data-page=styles] .mp-style-story figure.mp-inline-motion{aspect-ratio:1}
+.mp-service-detail figure.mp-inline-motion{width:min(100%,440px)}
+body[data-page=styles] .mp-style-story figure.mp-inline-motion{width:min(100%,420px);max-width:420px}
 .mp-motion-frame img,.mp-inline-motion img,
 .mp-service-detail figure.mp-inline-motion img,
 body[data-page=styles] .mp-style-story figure.mp-inline-motion img{
   width:100%;height:100%;aspect-ratio:1;object-fit:cover;filter:none
 }
 .mp-motion-frame::after,.mp-inline-motion::after{opacity:.08}
+@media(max-width:760px){
+  .mp-service-detail figure.mp-inline-motion,
+  body[data-page=styles] .mp-style-story figure.mp-inline-motion,
+  .mp-case-scene figure.mp-inline-motion{width:min(88vw,420px)}
+}

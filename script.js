@@ -10,9 +10,12 @@ const flags = {
   ru: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#3158a8" d="M0 .667h3v1.333H0z"/><path fill="#d52b31" d="M0 1.333h3v.667H0z"/></svg>',
   en: '<svg viewBox="0 0 60 40" aria-hidden="true"><path fill="#17306f" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="9" d="m0 0 60 40M60 0 0 40"/><path stroke="#c9213b" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#c9213b" stroke-width="7" d="M30 0v40M0 20h60"/></svg>',
   fr: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#1b3f93" d="M0 0h1v2H0z"/><path fill="#db3440" d="M2 0h1v2H2z"/></svg>',
-  it: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#15945b" d="M0 0h1v2H0z"/><path fill="#d7313b" d="M2 0h1v2H2z"/></svg>'
+  it: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#15945b" d="M0 0h1v2H0z"/><path fill="#d7313b" d="M2 0h1v2H2z"/></svg>',
+  de: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#111" d="M0 0h3v2H0z"/><path fill="#d12932" d="M0 .667h3v.666H0z"/><path fill="#f5cb42" d="M0 1.333h3v.667H0z"/></svg>',
+  es: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#b7202d" d="M0 0h3v2H0z"/><path fill="#f8cf43" d="M0 .5h3v1H0z"/></svg>',
+  pt: '<svg viewBox="0 0 3 2" aria-hidden="true"><path fill="#d42b3b" d="M0 0h3v2H0z"/><path fill="#167a52" d="M0 0h1.25v2H0z"/><circle cx="1.25" cy="1" r=".36" fill="#e8c56a"/></svg>'
 };
-const languageChoices = [['ru', 'Русский'], ['en', 'English'], ['fr', 'Français'], ['it', 'Italiano']]
+const languageChoices = [['ru', 'Русский'], ['en', 'English'], ['fr', 'Français'], ['it', 'Italiano'], ['de', 'Deutsch'], ['es', 'Español'], ['pt', 'Português']]
   .map(([code, label]) => `<button type="button" data-lang="${code}" aria-label="${label}"><span class="lang-flag">${flags[code]}</span><span>${code.toUpperCase()}</span></button>`).join('');
 const links = pages.map(([href, label, id]) => `<a href="${href}" ${current === id ? 'aria-current="page"' : ''}>${label}</a>`).join('');
 const header = document.getElementById('site-header');
