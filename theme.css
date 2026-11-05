@@ -1,6 +1,6 @@
 /* AEMUSE has two editorial palettes. Photographs and film frames keep their own contrast. */
 :root{color-scheme:dark}
-.theme-toggle{display:grid;place-items:center;flex:none;width:42px;height:42px;padding:0;border:1px solid rgba(241,229,215,.35);border-radius:50%;background:rgba(241,229,215,.07);color:inherit;cursor:pointer;transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.theme-toggle{display:grid;place-items:center;flex:none;width:42px;height:42px;padding:0;border:1px solid transparent;border-radius:50%;background:transparent;color:inherit;cursor:pointer;transition:background .25s ease,transform .25s ease}
 .theme-toggle svg{grid-area:1/1;width:19px;height:19px;transition:opacity .25s ease,transform .35s ease}
 .theme-icon-moon{opacity:0;transform:rotate(-35deg) scale(.7)}
 .theme-icon-sun{opacity:1;transform:rotate(0) scale(1)}
@@ -29,7 +29,8 @@
 :root[data-site-theme=light] .site-header.menu-open,
 :root[data-site-theme=light] .site-header.menu-open[data-theme]{border-color:rgba(255,255,255,.82);background:linear-gradient(150deg,rgba(255,255,255,.34),rgba(255,255,255,.05) 56%),rgba(249,243,235,.74);color:var(--ink);box-shadow:0 14px 40px rgba(58,35,38,.12),inset 0 1px 0 rgba(255,255,255,.9)}
 :root[data-site-theme=light] .theme-toggle,
-:root[data-site-theme=light] .lang-trigger{border-color:rgba(43,32,33,.27);background:rgba(255,255,255,.22);color:var(--ink)}
+:root[data-site-theme=light] .lang-trigger{border-color:transparent;background:transparent;color:var(--ink)}
+:root .lang-trigger{border-color:transparent;background:transparent}
 :root[data-site-theme=light] .theme-toggle:hover{background:rgba(255,255,255,.65)}
 :root[data-site-theme=light] .lang-options{border-color:rgba(255,255,255,.8);background:rgba(249,243,235,.95);color:var(--ink);box-shadow:0 15px 35px rgba(58,35,38,.15)}
 :root[data-site-theme=light] .lang-options button:hover,
@@ -67,3 +68,45 @@
   .header-actions{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){.theme-toggle,.theme-toggle svg{transition:none}}
+
+/* Diffused navigation light: the glass fades into the page without a visible edge. */
+.site-header,.site-header[data-theme],.site-header[data-scrolled=true],.site-header.menu-open,.site-header.menu-open[data-theme],
+:root[data-site-theme=light] .site-header,:root[data-site-theme=light] .site-header[data-theme],:root[data-site-theme=light] .site-header[data-scrolled=true],:root[data-site-theme=light] .site-header.menu-open,:root[data-site-theme=light] .site-header.menu-open[data-theme]{position:fixed;isolation:isolate;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.site-header::before{content:"";position:absolute;inset:-18px -20vw -95px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(23,13,18,.32),rgba(23,13,18,0) 100%);backdrop-filter:blur(22px) saturate(1.08);-webkit-backdrop-filter:blur(22px) saturate(1.08);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 25%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 25%,transparent 100%)}
+:root[data-site-theme=light] .site-header::before{background:linear-gradient(180deg,rgba(249,243,235,.38),rgba(249,243,235,0) 100%)}
+
+/* Let the final section dissolve into the footer in either palette. */
+.mp-footer,:root[data-site-theme=light] .mp-footer{
+  --footer-fade:clamp(340px,36vw,500px);
+  padding-top:calc(var(--footer-fade) + 16px);
+  background:linear-gradient(180deg,
+    var(--warm) 0px,
+    var(--warm) 60px,
+    color-mix(in srgb,var(--warm) 88%,var(--night)) 140px,
+    color-mix(in srgb,var(--warm) 60%,var(--night)) 230px,
+    color-mix(in srgb,var(--warm) 30%,var(--night)) calc(var(--footer-fade) - 100px),
+    var(--night) var(--footer-fade),
+    var(--night) 100%);
+}
+body[data-case=ararat] .mp-footer,
+:root[data-site-theme=light] body[data-case=ararat] .mp-footer{
+  padding-top:90px;
+  background:var(--night);
+}
+
+/* The case film room opens and closes without a sharp light-to-dark seam. */
+:root[data-site-theme=light] .mp-case-films{
+  background:linear-gradient(180deg,var(--warm) 0%,var(--night) 160px,var(--night) calc(100% - 160px),var(--warm) 100%);
+}
+
+/* The founders remain fully visible while the next section carries the fade. */
+.mp-about-belief,:root[data-site-theme=light] .mp-about-belief{
+  padding-top:clamp(300px,28vw,430px);
+  background:linear-gradient(180deg,
+    var(--night) 0px,
+    color-mix(in srgb,var(--night) 85%,var(--warm)) 80px,
+    color-mix(in srgb,var(--night) 55%,var(--warm)) 170px,
+    color-mix(in srgb,var(--night) 25%,var(--warm)) 270px,
+    var(--warm) clamp(280px,25vw,380px),
+    var(--warm) 100%);
+}
