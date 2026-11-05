@@ -445,3 +445,20 @@ body[data-page=work] .mp-work-open .mp-work-hero{grid-column:1;grid-row:1;height
   .mp-work-film-link{order:2;align-self:center;margin:14px 0 24px}
   body[data-page=work] .mp-work-open .mp-work-hero{order:3;height:clamp(480px,65svh,640px)}
 }
+
+/* Keep the square film excerpts quiet beside the copy, at 70% of their previous size. */
+.mp-motion-layout,.mp-work-intro .mp-work-intro-layout{grid-template-columns:minmax(0,1fr) minmax(0,294px)}
+.mp-motion-layout .mp-motion-frame,.mp-work-intro .mp-motion-frame{width:100%;max-width:294px}
+.mp-story-row{grid-template-columns:minmax(0,1fr) minmax(0,301px);min-height:clamp(390px,40vw,530px);gap:clamp(34px,6vw,100px)}
+.mp-story-row:nth-child(even){grid-template-columns:minmax(0,301px) minmax(0,1fr)}
+.mp-story-motion{width:100%;max-width:301px}
+.mp-service-detail figure.mp-inline-motion{width:min(100%,308px)}
+body[data-page=styles] .mp-style-story figure.mp-inline-motion{width:min(100%,294px);max-width:294px}
+.mp-case-scene figure.mp-inline-motion{width:min(100%,294px)}
+.mp-motion-heading p,.mp-work-intro-copy p,.mp-story-copy p,.mp-service-copy p,.mp-style-story p,.mp-case-scene p{max-width:48ch;line-height:1.65}
+@media(max-width:760px){
+  .mp-motion-layout .mp-motion-frame,.mp-work-intro .mp-motion-frame{width:min(61.6vw,294px)}
+  .mp-story-row,.mp-story-row:nth-child(even){min-height:0}
+  .mp-story-motion{width:min(70%,301px)}
+  .mp-service-detail figure.mp-inline-motion,body[data-page=styles] .mp-style-story figure.mp-inline-motion,.mp-case-scene figure.mp-inline-motion{width:min(61.6vw,294px)}
+}
