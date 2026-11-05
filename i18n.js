@@ -341,6 +341,7 @@ function setLanguage(next, updateUrl = false) {
     link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
   });
   syncMenuLabel();
+  window.aemuseTheme?.syncLabels(next);
   if (updateUrl) {
     const url = new URL(location.href);
     if (next === 'ru') url.searchParams.delete('lang');

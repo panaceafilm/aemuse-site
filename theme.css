@@ -1,0 +1,69 @@
+/* AEMUSE has two editorial palettes. Photographs and film frames keep their own contrast. */
+:root{color-scheme:dark}
+.theme-toggle{display:grid;place-items:center;flex:none;width:42px;height:42px;padding:0;border:1px solid rgba(241,229,215,.35);border-radius:50%;background:rgba(241,229,215,.07);color:inherit;cursor:pointer;transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.theme-toggle svg{grid-area:1/1;width:19px;height:19px;transition:opacity .25s ease,transform .35s ease}
+.theme-icon-moon{opacity:0;transform:rotate(-35deg) scale(.7)}
+.theme-icon-sun{opacity:1;transform:rotate(0) scale(1)}
+.theme-toggle:hover{background:rgba(241,229,215,.17);transform:rotate(12deg)}
+.theme-toggle:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+:root[data-site-theme=light]{color-scheme:light;--night:#160f12;--warm:#eee7df;--paper:#f9f3eb;--ink:#2b2021;--pale:#6f5b60;--wine:#823d4c;--brass:#a46c3f}
+:root[data-site-theme=light] .theme-icon-sun{opacity:0;transform:rotate(35deg) scale(.7)}
+:root[data-site-theme=light] .theme-icon-moon{opacity:1;transform:rotate(0) scale(1)}
+:root[data-site-theme=light] body,
+:root[data-site-theme=light] main,
+:root[data-site-theme=light] .mp-work-open,
+:root[data-site-theme=light] .mp-work-intro,
+:root[data-site-theme=light] .mp-motion-preview,
+:root[data-site-theme=light] .mp-style-story,
+:root[data-site-theme=light] .mp-case-gallery,
+:root[data-site-theme=light] .mp-case-scene,
+:root[data-site-theme=light] .mp-process,
+:root[data-site-theme=light] .mp-style-choice{background-color:var(--warm);color:var(--ink)}
+:root[data-site-theme=light] body[data-case=ararat],
+:root[data-site-theme=light] body[data-case=ararat] main,
+:root[data-site-theme=light] body[data-case=ararat] .mp-case-intro,
+:root[data-site-theme=light] body[data-case=ararat] .mp-case-gallery{background:var(--warm);color:var(--ink)}
+:root[data-site-theme=light] .site-header,
+:root[data-site-theme=light] .site-header[data-theme],
+:root[data-site-theme=light] .site-header[data-scrolled=true],
+:root[data-site-theme=light] .site-header.menu-open,
+:root[data-site-theme=light] .site-header.menu-open[data-theme]{border-color:rgba(255,255,255,.82);background:linear-gradient(150deg,rgba(255,255,255,.34),rgba(255,255,255,.05) 56%),rgba(249,243,235,.74);color:var(--ink);box-shadow:0 14px 40px rgba(58,35,38,.12),inset 0 1px 0 rgba(255,255,255,.9)}
+:root[data-site-theme=light] .theme-toggle,
+:root[data-site-theme=light] .lang-trigger{border-color:rgba(43,32,33,.27);background:rgba(255,255,255,.22);color:var(--ink)}
+:root[data-site-theme=light] .theme-toggle:hover{background:rgba(255,255,255,.65)}
+:root[data-site-theme=light] .lang-options{border-color:rgba(255,255,255,.8);background:rgba(249,243,235,.95);color:var(--ink);box-shadow:0 15px 35px rgba(58,35,38,.15)}
+:root[data-site-theme=light] .lang-options button:hover,
+:root[data-site-theme=light] .lang-options button[aria-current=true]{background:rgba(130,61,76,.1)}
+:root[data-site-theme=light] body[data-page=services]>.mp-jump-nav{border-color:rgba(255,255,255,.8);background:linear-gradient(150deg,rgba(255,255,255,.4),rgba(255,255,255,.06)),rgba(249,243,235,.82);color:var(--ink);box-shadow:0 14px 35px rgba(58,35,38,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+:root[data-site-theme=light] .mp-home-hero .hero-bottom{color:var(--ink);text-shadow:0 1px 10px rgba(249,243,235,.65)}
+:root[data-site-theme=light] .mp-home-feature::after{background:linear-gradient(180deg,rgba(13,10,12,.4) 0%,rgba(13,10,12,.4) 58%,rgba(238,231,223,.45) 82%,var(--warm) 100%)}
+:root[data-site-theme=light] .mp-home-feature,
+:root[data-site-theme=light] .mp-entry,
+:root[data-site-theme=light] .mp-work-hero,
+:root[data-site-theme=light] .mp-case-hero,
+:root[data-site-theme=light] .mp-contact-hero,
+:root[data-site-theme=light] .mp-case-end,
+:root[data-site-theme=light] .mp-about-photo{color:var(--paper)}
+:root[data-site-theme=light] body[data-page=work] .mp-featured-project{color:var(--ink)}
+:root[data-site-theme=light] .mp-story-row{border-color:rgba(43,32,33,.18)}
+:root[data-site-theme=light] .mp-story-copy p{color:var(--ink)}
+:root[data-site-theme=light] .mp-service-detail figcaption,
+:root[data-site-theme=light] .mp-honest-note,
+:root[data-site-theme=light] .mp-service-copy .mp-honest-note{color:var(--pale)}
+:root[data-site-theme=light] .button-dark{color:var(--paper)}
+:root[data-site-theme=light] .button-dark:hover{background:#672e3c}
+:root[data-site-theme=light] .mp-case-films,
+:root[data-site-theme=light] .mp-about-hero,
+:root[data-site-theme=light] .mp-footer{background:var(--night);color:var(--paper)}
+:root[data-site-theme=light] .mp-case-films .mp-case-films-heading,
+:root[data-site-theme=light] .mp-case-films figcaption{color:var(--paper)}
+@media(max-width:1100px){
+  :root[data-site-theme=light] .site-header .mp-mobile-nav,
+  :root[data-site-theme=light] .site-header[data-theme=dark] .mp-mobile-nav{border-color:rgba(255,255,255,.8);background:rgba(249,243,235,.96);color:var(--ink);box-shadow:0 18px 38px rgba(58,35,38,.18)}
+}
+@media(max-width:640px){
+  .theme-toggle{width:38px;height:38px}
+  .theme-toggle svg{width:18px;height:18px}
+  .header-actions{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){.theme-toggle,.theme-toggle svg{transition:none}}

@@ -19,7 +19,34 @@ const languageChoices = [['ru', 'Русский'], ['en', 'English'], ['fr', 'Fr
   .map(([code, label]) => `<button type="button" data-lang="${code}" aria-label="${label}"><span class="lang-flag">${flags[code]}</span><span>${code.toUpperCase()}</span></button>`).join('');
 const links = pages.map(([href, label, id]) => `<a href="${href}" ${current === id ? 'aria-current="page"' : ''}>${label}</a>`).join('');
 const header = document.getElementById('site-header');
-header.innerHTML = `<a class="brand" href="index.html" aria-label="AEMUSE — главная">${mark}<span>aemuse</span></a><nav aria-label="Разделы сайта">${links}</nav><div class="header-actions"><div class="lang-control"><button class="lang-trigger" type="button" aria-label="Язык сайта" aria-expanded="false" aria-controls="lang-options"><span class="lang-flag">${flags.ru}</span><span class="lang-current">RU</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="lang-options" id="lang-options" role="group" aria-label="Выбор языка" hidden>${languageChoices}</div></div><a class="header-contact" href="contact.html">обсудить съёмку <span aria-hidden="true">↗</span></a><button class="mp-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav class="mp-mobile-nav" id="mobile-nav" aria-label="Мобильное меню">${links}<a href="contact.html">обсудить съёмку</a></nav>`;
+header.innerHTML = `<a class="brand" href="index.html" aria-label="AEMUSE — главная">${mark}<span>aemuse</span></a><nav aria-label="Разделы сайта">${links}</nav><div class="header-actions"><button class="theme-toggle" type="button" aria-label="Включить светлую тему" title="Включить светлую тему"><svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2.2m0 15.6V22M4.93 4.93l1.56 1.56m11.02 11.02 1.56 1.56M2 12h2.2m15.6 0H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" aria-hidden="true"><path d="M20.5 15.2A8.7 8.7 0 0 1 8.8 3.5 8.7 8.7 0 1 0 20.5 15.2Z"/></svg></button><div class="lang-control"><button class="lang-trigger" type="button" aria-label="Язык сайта" aria-expanded="false" aria-controls="lang-options"><span class="lang-flag">${flags.ru}</span><span class="lang-current">RU</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="lang-options" id="lang-options" role="group" aria-label="Выбор языка" hidden>${languageChoices}</div></div><a class="header-contact" href="contact.html">обсудить съёмку <span aria-hidden="true">↗</span></a><button class="mp-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav class="mp-mobile-nav" id="mobile-nav" aria-label="Мобильное меню">${links}<a href="contact.html">обсудить съёмку</a></nav>`;
+const themeToggle = header.querySelector('.theme-toggle');
+const themeLabels = {
+  ru: ['Включить светлую тему', 'Включить тёмную тему'],
+  en: ['Switch to light theme', 'Switch to dark theme'],
+  fr: ['Passer au thème clair', 'Passer au thème sombre'],
+  it: ['Passa al tema chiaro', 'Passa al tema scuro'],
+  de: ['Zum hellen Design wechseln', 'Zum dunklen Design wechseln'],
+  es: ['Cambiar al tema claro', 'Cambiar al tema oscuro'],
+  pt: ['Mudar para o tema claro', 'Mudar para o tema escuro']
+};
+const syncThemeLabel = (language = document.documentElement.lang) => {
+  const isLight = document.documentElement.dataset.siteTheme === 'light';
+  const label = (themeLabels[language] || themeLabels.ru)[isLight ? 1 : 0];
+  themeToggle.setAttribute('aria-label', label);
+  themeToggle.title = label;
+  themeToggle.setAttribute('aria-pressed', String(isLight));
+  const browserColor = document.querySelector('meta[name="theme-color"]');
+  if (browserColor) browserColor.content = isLight ? '#eee7df' : '#180e12';
+};
+window.aemuseTheme = { syncLabels: syncThemeLabel };
+syncThemeLabel();
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.siteTheme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.siteTheme = next;
+  try { localStorage.setItem('aemuse-theme', next); } catch {}
+  syncThemeLabel();
+});
 if (current === 'services') {
   const jumpNav = document.querySelector('.mp-jump-nav');
   if (jumpNav) header.after(jumpNav);
